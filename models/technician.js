@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const technicianSchema = new Schema ({
+const technicianSchema = new mongoose.Schema ({
     technicianName: { type: String, required: true },
     technicianEmail: { type: String, required: true },
-    technicianPassword: { type: String, required: true }
+    technicianPhone: { type: String, required: true }
 });
 
-export default mongoose.model("Technician", technicianSchema);
+module.exports = mongoose.model("Technician", technicianSchema); 

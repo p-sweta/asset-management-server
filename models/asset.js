@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const assetSchema = new mongoose.Schema ({
     assetName: { type: String, required: true },
@@ -6,7 +6,7 @@ const assetSchema = new mongoose.Schema ({
     locationId: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
     assetDescription: { type: String, required: true },
     purchaseDate: { type: Date, default: new Date() },
-    manufacture: { type: String, required: true },
+    manufacturer: { type: String, required: true },
     serialNumber: { type: String, required: true },
     warrantyExpirationDate: { type: Date, default: new Date() },
     maintenanceInterval: { type: String, required: true },
@@ -15,4 +15,4 @@ const assetSchema = new mongoose.Schema ({
     status: { type: String, required: true }
 })
 
-export default mongoose.model("Asset", assetSchema);
+module.exports = mongoose.model("Asset", assetSchema); 

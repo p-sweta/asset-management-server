@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const equipmentPerformanceSchema = new Schema ({
+const equipmentPerformanceSchema = new mongoose.Schema ({
     assetId: { type: mongoose.Schema.Types.ObjectId, ref: "Asset" },
     performanceDate: { type: Date, default: new Date() },
     parameters: [ { parameter: String, value: String }],
@@ -8,4 +8,4 @@ const equipmentPerformanceSchema = new Schema ({
     floorNumber: { type: Number, required: true }
 });
 
-export default mongoose.model("EquipmentPerformance", equipmentPerformanceSchema);
+module.exports = mongoose.model("EquipmentPerformance", equipmentPerformanceSchema);

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const maintenanceTaskSchema = new mongoose.Schema ({
     assetId: { type: mongoose.Schema.Types.ObjectId, ref: "Asset" },
@@ -10,4 +10,4 @@ const maintenanceTaskSchema = new mongoose.Schema ({
     status: { type: String, required: true }
 })
 
-export default mongoose.model("MaintenanceTask", maintenanceTaskSchema);
+module.exports = mongoose.model("MaintenanceTask", maintenanceTaskSchema);
