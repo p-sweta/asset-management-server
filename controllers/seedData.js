@@ -1,22 +1,29 @@
+const mongoose = require("mongoose");
+const Location = require("../models/location");
 const Asset = require("../models/asset");
 const EquipmentPerformance = require("../models/equipmentPerformance");
-const Location = require("../models/location");
 const MaintenanceTask = require("../models/maintenanceTask");
 const Technician = require("../models/technician");
 
+const ObjectId = mongoose.Types.ObjectId;
+
 const insertLocationData = [
     {
+        "_id": new ObjectId(),
         "buildingName": "Main Building",
         "floorNumber": 1
       },
       {
+        "_id": new ObjectId(),
         "buildingName": "Filter House",
         "floorNumber": 2
       }
 ]; 
 
-const insertAssetData = [
+
+const insertAssetData = [ 
     {
+        "_id": new ObjectId(),
         "assetName": "Pump A",
         "assetType": "Pump",
         "locationId": insertLocationData[0]._id,
@@ -31,6 +38,7 @@ const insertAssetData = [
         "status": "Active"
       },
       {
+        "_id": new ObjectId(),
         "assetName": "Filter Unit",
         "assetType": "Filter",
         "locationId": insertLocationData[1]._id,
@@ -48,6 +56,7 @@ const insertAssetData = [
 
 const insertEquipmentPerformanceData = [
     {
+        "_id": new ObjectId(),
         "assetId": insertAssetData[1]._id,
         "performanceDate": new Date("2023-06-05T08:00:00Z"),
         "parameters": [
@@ -59,6 +68,7 @@ const insertEquipmentPerformanceData = [
         "floorNumber":  1
       },
       {
+        "_id": new ObjectId(),
         "assetId": insertAssetData[0]._id,
         "performanceDate": new Date("2023-06-10T12:00:00Z"),
         "parameters": [
@@ -73,11 +83,13 @@ const insertEquipmentPerformanceData = [
 
 const insertTechnicianData = [
     {
+        "_id": new ObjectId(),
         "technicianName": "John Smith",
         "technicianEmail": "johnsmith@example.com",
         "technicianPhone": "123-456-7890"
       },
       {
+        "_id": new ObjectId(),
         "technicianName": "Jane Doe",
         "technicianEmail": "janedoe@example.com",
         "technicianPhone": "987-654-3210"
@@ -86,6 +98,7 @@ const insertTechnicianData = [
 
 const insertMaintenanceTaskData = [
     {
+        "_id": new ObjectId(),
         "assetId": insertAssetData[1]._id,
         "taskName": "Routine Maintenance",
         "taskDescription": "Perform routine maintenance on the pump",
@@ -95,6 +108,7 @@ const insertMaintenanceTaskData = [
         "status": "Completed"
       },
       {
+        "_id": new ObjectId(),
         "assetId": insertAssetData[0]._id,
         "taskName": "Filter Replacement",
         "taskDescription": "Replace the filter in the filtration unit",

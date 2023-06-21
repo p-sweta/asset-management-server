@@ -5,7 +5,7 @@ const technicianController = require("../controllers/technician-controller");
 router.route('/').get(technicianController.getAllTechnician);
 router.route('/:id').get(technicianController.getTechnician);
 router.route('/').post(technicianController.createTechnician);
-router.route('/').patch(technicianController.updateTechnician);
-router.route('/').delete(technicianController.deleteTechnician);
+router.route('/:id').patch(technicianController.updateTechnician);
+router.route('/:id').delete(technicianController.deleteTechnician);
 
 module.exports = router;
