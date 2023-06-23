@@ -3,8 +3,25 @@ const location = require("../models/location");
 
 const getAssets = async (req, res) => {
     try {
-        const assets = await asset.find();
-        res.status(200).json(assets);
+        const assets = await asset.find().populate('locationId');
+        const assetsWithLocationName = assets.map((asset) => ({
+          _id: asset._id,
+          assetName: asset.assetName,
+          assetType: asset.assetType,
+          assetId: asset.assetId,
+          locationId: asset.locationId,
+          locationName: asset.locationId.buildingName, 
+          assetDescription: asset.assetDescription,
+          purchaseDate: asset.purchaseDate,
+          manufacturer: asset.manufacturer,
+          serialNumber: asset.serialNumber,
+          warrantyExpirationDate: asset.warrantyExpirationDate,
+          maintenanceInterval: asset.maintenanceInterval,
+          lastMaintenanceDate: asset.lastMaintenanceDate,
+          nextMaintenanceDate: asset.nextMaintenanceDate,
+          status: asset.status,
+        }));
+        res.status(200).json(assetsWithLocationName);
       } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Assets not available" });

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const assetSchema = new mongoose.Schema ({
     assetName: { type: String, required: true },
     assetType: { type: String, required: true },
+    assetId: { type: String, required: true },
     locationId: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
     assetDescription: { type: String, required: true },
     purchaseDate: { type: Date, default: new Date() },

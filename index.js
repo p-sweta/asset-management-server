@@ -11,6 +11,7 @@ const equipmentPerformanceRoutes = require("./routes/equipmentPerformance-routes
 const locationRoutes = require("./routes/location-routes");
 const maintenanceTaskRoutes = require("./routes/maintenanceTask-routes");
 const technicianRoutes = require("./routes/technician-routes");
+const userRoutes = require("./routes/user-routes");
 
 app.use(express.json());
 app.use(cors());
@@ -20,6 +21,7 @@ app.use("/equipment-performances", equipmentPerformanceRoutes);
 app.use("/locations", locationRoutes);
 app.use("/maintenance-tasks", maintenanceTaskRoutes);
 app.use("/technicians", technicianRoutes);
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -44,3 +46,4 @@ const connectDB = async () => {
 };
 
 connectDB();
+ 
