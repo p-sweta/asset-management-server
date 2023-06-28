@@ -26,17 +26,17 @@ const getLocationById = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: `Failed to get location with ID: ${id}` });
   }
-}; 
+};
 
 const getAssetsByLocationId = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-        const assets = await asset.find({ locationId: id });
-        res.status(200).json(assets);
-    } catch (error) {
-        res.status(500).json({ message: "Assets at this location not available" });
-    }
+  try {
+    const assets = await asset.find({ locationId: id });
+    res.status(200).json(assets);
+  } catch (error) {
+    res.status(500).json({ message: "Assets at this location not available" });
+  }
 };
 
 const createLocation = async (req, res) => {
@@ -45,7 +45,7 @@ const createLocation = async (req, res) => {
   try {
     const newLocation = new location({
       buildingName,
-      floorNumber
+      floorNumber,
     });
     const savedLocation = await newLocation.save();
     res.status(201).json(savedLocation);
@@ -59,18 +59,23 @@ const updateLocation = async (req, res) => {
   const { id } = req.params;
   const { buildingName, floorNumber } = req.body;
   try {
-    const updatedLocation = await location.findByIdAndUpdate(id, 
-      { buildingName, floorNumber }, { new: true });
+    const updatedLocation = await location.findByIdAndUpdate(
+      id,
+      { buildingName, floorNumber },
+      { new: true }
+    );
 
-      if (!updatedLocation) {
-        return res.status(404).json({
-          message: `Location with ID: ${id} not found`,
-        });
-      }
-      res.status(200).json(updatedLocation);
+    if (!updatedLocation) {
+      return res.status(404).json({
+        message: `Location with ID: ${id} not found`,
+      });
+    }
+    res.status(200).json(updatedLocation);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: `Failed to update location with ID: ${id}` });
+    res
+      .status(500)
+      .json({ message: `Failed to update location with ID: ${id}` });
   }
 };
 const deleteLocation = async (req, res) => {
@@ -78,11 +83,15 @@ const deleteLocation = async (req, res) => {
   try {
     const deletedLocation = await location.findByIdAndDelete(id);
     if (!deletedLocation) {
-      return res.status(404).json({ message: `Location with ID: ${id} not found` });
+      return res
+        .status(404)
+        .json({ message: `Location with ID: ${id} not found` });
     }
     res.status(200).json(deletedLocation);
   } catch (error) {
-    res.status(500).json({  message: `Failed to delete location with ID: ${id}` });
+    res
+      .status(500)
+      .json({ message: `Failed to delete location with ID: ${id}` });
   }
 };
 

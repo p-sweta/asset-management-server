@@ -22,53 +22,53 @@ const insertLocationData = [
   {
     _id: new ObjectId(),
     buildingName: "Main Building",
-    floorNumber: 2
+    floorNumber: 2,
   },
   {
     _id: new ObjectId(),
     buildingName: "Administration Building",
-    floorNumber: 3
+    floorNumber: 3,
   },
   {
     _id: new ObjectId(),
     buildingName: "Pump Station 1",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Chemical Storage Building",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Control Room",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Laboratory",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Maintenance Workshop",
-    floorNumber: 2
+    floorNumber: 2,
   },
   {
     _id: new ObjectId(),
     buildingName: "Storage Warehouse",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Building 6",
-    floorNumber: 1
+    floorNumber: 1,
   },
   {
     _id: new ObjectId(),
     buildingName: "Main Clarifiers",
-    floorNumber: 1
-  }
+    floorNumber: 1,
+  },
 ];
 
 const insertAssetData = [
@@ -118,7 +118,7 @@ const insertAssetData = [
     maintenanceInterval: "Monthly",
     lastMaintenanceDate: new Date("2022-06-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-07-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -134,7 +134,7 @@ const insertAssetData = [
     maintenanceInterval: "Quarterly",
     lastMaintenanceDate: new Date("2022-05-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-08-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -150,7 +150,7 @@ const insertAssetData = [
     maintenanceInterval: "Monthly",
     lastMaintenanceDate: new Date("2022-06-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-07-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -166,7 +166,7 @@ const insertAssetData = [
     maintenanceInterval: "Annually",
     lastMaintenanceDate: new Date("2022-05-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2023-05-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -182,7 +182,7 @@ const insertAssetData = [
     maintenanceInterval: "Quarterly",
     lastMaintenanceDate: new Date("2022-07-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-10-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -198,7 +198,7 @@ const insertAssetData = [
     maintenanceInterval: "Monthly",
     lastMaintenanceDate: new Date("2022-09-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-10-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -214,7 +214,7 @@ const insertAssetData = [
     maintenanceInterval: "Quarterly",
     lastMaintenanceDate: new Date("2022-10-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2023-01-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -230,7 +230,7 @@ const insertAssetData = [
     maintenanceInterval: "Annually",
     lastMaintenanceDate: new Date("2022-09-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2023-09-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -246,7 +246,7 @@ const insertAssetData = [
     maintenanceInterval: "Monthly",
     lastMaintenanceDate: new Date("2022-10-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2022-11-01T00:00:00Z"),
-    status: "Active"
+    status: "Active",
   },
   {
     _id: new ObjectId(),
@@ -262,8 +262,8 @@ const insertAssetData = [
     maintenanceInterval: "Quarterly",
     lastMaintenanceDate: new Date("2023-01-01T00:00:00Z"),
     nextMaintenanceDate: new Date("2023-04-01T00:00:00Z"),
-    status: "Active"
-  }
+    status: "Active",
+  },
 ];
 
 const insertEquipmentPerformanceData = [
@@ -283,7 +283,6 @@ const insertEquipmentPerformanceData = [
     buildingName: "Main Building",
     floorNumber: 1,
   },
-  
 ];
 
 const insertTechnicianData = [

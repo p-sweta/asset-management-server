@@ -28,10 +28,12 @@ const registerUser = async (req, res) => {
     });
     const savedUser = await newUser.save();
 
-    const token = jwt.sign({ email: savedUser.email, id: savedUser._id},
-        process.env.JWT_KEY,
-        { expiresIn: "30d" })
-    res.status(201).json({savedUser, token});
+    const token = jwt.sign(
+      { email: savedUser.email, id: savedUser._id },
+      process.env.JWT_KEY,
+      { expiresIn: "30d" }
+    );
+    res.status(201).json({ savedUser, token });
   } catch (error) {
     console.log(error);
     res.status(400).send(`"Failed registration" ${error}`);
@@ -43,7 +45,7 @@ const loginUser = async (req, res) => {
   if (!email || !password) {
     return res.status(400).json("Please enter all fields");
   }
-  
+
   const findUser = await user.findOne({ email });
 
   if (!findUser) {
@@ -55,25 +57,17 @@ const loginUser = async (req, res) => {
   if (!isPasswordValid) {
     return res.status(400).send("Invalid password");
   }
-  
+
   const token = jwt.sign(
     { id: findUser._id, email: findUser.email },
     process.env.JWT_KEY,
     { expiresIn: "30d" }
-);
-res.status(200).json({findUser, token});
+  );
+  res.status(200).json({ findUser, token });
 };
 
-
 const getUser = async (req, res) => {
-    res.json(req.user);
-    // const { _id, firstName, lastName, email } = await user.findById(req.user._id);
-    // res.status(200).json({
-    //     id: _id,
-    //     firstName,
-    //     lastName,
-    //     email
-    // })  
+  res.json(req.user);
 };
 
 module.exports = {

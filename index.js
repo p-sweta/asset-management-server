@@ -46,4 +46,3 @@ const connectDB = async () => {
 };
 
 connectDB();
- 
