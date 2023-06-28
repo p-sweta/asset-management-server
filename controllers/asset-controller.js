@@ -32,13 +32,30 @@ const getAssetByID = async (req, res) => {
     const { id } = req.params;
 
   try {
-    const singleAsset = await asset.findById(id);
+    const singleAsset = await asset.findById(id).populate('locationId');
     if (singleAsset.length === 0) {
       return res.status(404).json({
         message: `Asset with ID: ${id} not found`,
       });
     }
-    res.status(200).json(singleAsset);
+    const assetWithLocationName = {
+        _id: singleAsset._id,
+        assetName: singleAsset.assetName,
+        assetType: singleAsset.assetType,
+        assetId: singleAsset.assetId,
+        locationId: singleAsset.locationId,
+        locationName: singleAsset.locationId.buildingName, 
+        assetDescription: singleAsset.assetDescription,
+        purchaseDate: singleAsset.purchaseDate,
+        manufacturer: singleAsset.manufacturer,
+        serialNumber: singleAsset.serialNumber,
+        warrantyExpirationDate: singleAsset.warrantyExpirationDate,
+        maintenanceInterval: singleAsset.maintenanceInterval,
+        lastMaintenanceDate: singleAsset.lastMaintenanceDate,
+        nextMaintenanceDate: singleAsset.nextMaintenanceDate,
+        status: singleAsset.status,
+      };
+    res.status(200).json(assetWithLocationName);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: `Failed to get asset with ID: ${id}` });
@@ -48,6 +65,7 @@ const getAssetByID = async (req, res) => {
 const createAsset = async (req, res) => {
     const { assetName, 
         assetType, 
+        assetId,
         locationName, 
         assetDescription, 
         purchaseDate, 
@@ -69,6 +87,7 @@ const createAsset = async (req, res) => {
     const newAsset = new asset({
         assetName, 
         assetType, 
+        assetId,
         locationId, 
         assetDescription, 
         purchaseDate, 
@@ -92,6 +111,7 @@ const updateAsset = async (req, res) => {
     const { id } = req.params;
     const { assetName, 
         assetType, 
+        assetId,
         locationName, 
         assetDescription, 
         purchaseDate, 
@@ -113,6 +133,7 @@ const updateAsset = async (req, res) => {
     const updatedAsset = await asset.findByIdAndUpdate(id,{
         assetName, 
         assetType, 
+        assetId,
         locationId, 
         assetDescription, 
         purchaseDate, 

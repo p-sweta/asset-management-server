@@ -16,4 +16,4 @@ const assetSchema = new mongoose.Schema ({
     status: { type: String, required: true }
 })
 
-module.exports = mongoose.model("Asset", assetSchema); 
+module.exports = mongoose.model("Asset", assetSchema);  
